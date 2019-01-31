@@ -1,0 +1,185 @@
+In computing, plain text is a loose term for data (e.g. file contents) that
+represent only characters of readable material but not its graphical
+representation nor other objects (floating-point numbers, images, etc.). It may
+also include a limited number of characters that control simple arrangement of
+text, such as spaces, line breaks, or tabulation characters (although tab
+characters can "mean" many different things, so are hardly "plain"). Plain text
+is different from formatted text, where style information is included; from
+structured text, where structural parts of the document such as paragraphs,
+sections, and the like are identified); and from binary files in which some
+portions must be interpreted as binary objects (encoded integers, real numbers,
+images, etc.).
+
+The term is sometimes used quite loosely, to mean files that contain only
+"readable" content (or just files with nothing that the speaker doesn't
+prefer). For example, that could exclude any indication of fonts or layout
+(such as markup, markdown, or even tabs); characters such as curly quotes,
+non-breaking spaces, soft hyphens, em dashes, and/or ligatures; or other
+things. 
+
+In principle, plain text can be in any encoding, but occasionally the term is
+taken to imply ASCII. As Unicode-based encodings such as UTF-8 and UTF-16
+become more common, that usage may be shrinking.
+
+Plain text is also sometimes used only to exclude "binary" files: those in
+which at least some parts of the file cannot be correctly interpreted via the
+character encoding in effect. For example, a file or string consisting of
+"hello" (in whatever encoding), following by 4 bytes that express a binary
+integer that is not just a character, is a binary file, not plain text by even
+the loosest common usages. Put another way, translating a plain text file to a
+character encoding that uses entirely different number to represent characters,
+does not change the meaning (so long as you know what encoding is in use), but
+for binary files such a conversion does change the meaning of at least some
+parts of the file.
+
+Files that contain markup or other meta-data are generally considered
+plain-text, so long as the markup is also in directly human-readable form (as
+in HTML, XML, and so on (as Coombs, Renear, and DeRose argue, punctuation is
+itself markup; and no one considers punctuation to disqualify a file from being
+plain text). 
+
+The use of plain text rather than binary files, enables files to survive much
+better "in the wild", in part by making them largely immune to computer
+architecture incompatibilities. For example, all the problems of Endianness can
+be avoided (with encodings such as UCS-2 rather than UTF-8, endianness matters,
+but uniformly for every character, rather than for potentially-unknown subsets
+of it).
+
+According to The Unicode Standard,
+
+"Plain text is a pure sequence of character codes; plain Un-encoded text is
+therefore a sequence of Unicode character codes."
+
+Styled text, also known as rich text, is any text representation containing
+plain text completed by information such as a language identifier, font size,
+color, hypertext links. Thus, representations such as SGML, RTF, HTML, XML,
+wiki markup, and TeX, as well as nearly all programming language source code
+files, are considered plain text. The particular contents is irrelevant to
+whether a file is plain text. For example, an SVG file can express drawings or
+even bitmapped graphics, but is still plain text. 
+
+== Usage ==
+
+The purpose of using plain text today is primarily independence from programs
+that require their very own special encoding or formatting or file format.
+Plain text files can be opened, read, and edited with countless text editors
+and utilities.
+
+A command-line interface allows people to give commands in plain text and get a
+response, also typically in plain text.
+
+Many other computer programs are also capable of processing or creating plain
+text, such as countless programs in DOS, Windows, classic Mac OS, and Unix and
+its kin; as well as web browsers (a few browsers such as Lynx and the Line Mode
+Browser produce only plain text for display) and other e-text readers.
+
+Plain text files are almost universal in programming; a source code file
+containing instructions in a programming language is almost always a plain text
+file. Plain text is also commonly used for configuration files, which are read
+for saved settings at the startup of a program.
+
+Plain text is used for much e-mail.
+
+A comment, a ".txt" file, or a TXT Record generally contains only plain text
+(without formatting) intended for humans to read.
+
+The best format for storing knowledge persistently is plain text, rather than
+some binary format.
+
+== Encoding ==
+
+=== Character encodings ===
+
+Before the early 1960s, computers were mainly used for number-crunching rather
+than for text, and memory was extremely expensive. Computers often allocated
+only 6 bits for each character, permitting only 64 characters—assigning codes
+for A-Z, a-z, and 0-9 would leave only 2 codes: nowhere near enough. Most
+computers opted not to support lower-case letters. Thus, early text projects
+such as Roberto Busa's Index Thomisticus, the Brown Corpus, and others had to
+resort to conventions such as keying an asterisk preceding letters actually
+intended to be upper-case.
+
+Fred Brooks of IBM argued strongly for going to 8-bit bytes, because someday
+people might want to process text; and won. Although IBM used EBCDIC, most text
+from then on came to be encoded in ASCII, using values from 0 to 31 for
+(non-printing) control characters, and values from 32 to 127 for graphic
+characters such as letters, digits, and punctuation. Most machines stored
+characters in 8 bits rather than 7, ignoring the remaining bit or using it as a
+checksum.
+
+The near-ubiquity of ASCII was a great help, but failed to address
+international and linguistic concerns. The dollar-sign ("$") was not so useful
+in England, and the accented characters used in Spanish, French, German, and
+many other languages were entirely unavailable in ASCII (not to mention
+characters used in Greek, Russian, and most Eastern languages). Many
+individuals, companies, and countries defined extra characters as needed—often
+reassigning control characters, or using value in the range from 128 to 255.
+Using values above 128 conflicts with using the 8th bit as a checksum, but the
+checksum usage gradually died out.
+
+These additional characters were encoded differently in different countries,
+making texts impossible to decode without figuring out the originator's rules.
+For instance, a browser might display ¬A rather than ` if it tried to interpret
+one character set as another. The International Organisation for
+Standardisation (ISO) eventually developed several code pages under ISO 8859,
+to accommodate various languages. The first of these (ISO 8859-1) is also known
+as"Latin-1", and covers the needs of most (not all) European languages that use
+Latin-based characters (there was not quite enough room to cover them all). ISO
+2022 then provided conventions for"switching" between different character sets
+in mid-file. Many other organisations developed variations on these, and for
+many years Windows and Macintosh computers used incompatible variations.
+
+The text-encoding situation became more and more complex, leading to efforts by
+ISO and by the Unicode Consortium to develop a single, unified character
+encoding that could cover all known (or at least all currently known)
+languages. After some conflict, these efforts were unified. Unicode currently
+allows for 1,114,112 code values, and assigns codes covering nearly all modern
+text writing systems, as well as many historical ones and for many
+non-linguistic characters such as printer's dingbats, mathematical symbols,
+etc.
+
+Text is considered plain-text regardless of its encoding. To properly
+understand or process it the recipient must know (or be able to figure out)
+what encoding was used; however, they need not know anything about the computer
+architecture that was used, or about the binary structures defined by whatever
+program (if any) created the data.
+
+Perhaps the most common way of explicitly stating the specific encoding of
+plain text is with a MIME type.
+
+For email and http, the default MIME type is "text/plain" -- plain text without
+markup.
+
+Another MIME type often used in both email and http is "text/html;
+charset=UTF-8" -- plain text represented using UTF-8 character encoding with
+HTML markup.
+
+Another common MIME type is "application/json" -- plain text represented using
+UTF-8 character encoding with JSON markup.
+
+When a document is received without any explicit indication of the character
+encoding, some applications use charset detection to attempt to guess what
+encoding was used.
+
+=== Control codes ===
+
+ASCII reserves the first 32 codes (numbers 0–31 decimal) for control characters
+known as the "C0 set": codes originally intended not to represent printable
+information, but rather to control devices (such as printers) that make use of
+ASCII, or to provide meta-information about data streams such as those stored
+on magnetic tape. They include common characters like the newline and the tab
+character.
+
+In 8-bit character sets such as Latin-1 and the other ISO 8859 sets, the first
+32 characters of the "upper half" (128 to 159) are also control codes, known as
+the "C1 set". They are rarely used directly; when they turn up in documents
+which are ostensibly in an ISO 8859 encoding, their code positions generally
+refer instead to the characters at that position in a proprietary,
+system-specific encoding, such as Windows-1252 or Mac OS Roman, that use the
+codes to instead provide additional graphic characters.
+
+Unicode defines additional control characters, including bi-directional text
+direction override characters (used to explicitly mark right-to-left writing
+inside left-to-right writing and the other way around) and variation selectors
+to select alternate forms of CJK ideographs, emoji and other characters.
+
